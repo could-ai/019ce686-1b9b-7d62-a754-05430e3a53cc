@@ -59,6 +59,15 @@ jobs:
           # Verify whether the keystore contains the specified alias
           echo "Verifying if the keystore contains the alias: ${{ secrets.ANDROID_KEY_ALIAS }}"
           keytool -list -v -keystore keystore.jks -storepass "${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" | grep -i "alias name: ${{ secrets.ANDROID_KEY_ALIAS }}"
+
+          # Fail fast if the configured keystore is a debug keystore
+          echo "Checking that the configured keystore is not a debug keystore..."
+          KEYSTORE_INFO="$(keytool -list -v -keystore keystore.jks -alias "${{ secrets.ANDROID_KEY_ALIAS }}" -storepass "${{ secrets.ANDROID_KEYSTORE_PASSWORD }}")"
+          echo "$KEYSTORE_INFO" | grep -i "Owner:" || true
+          if echo "$KEYSTORE_INFO" | grep -qi "Owner: CN=Android Debug"; then
+            echo "::error::The configured Android keystore is a debug keystore. Upload a release upload keystore instead."
+            exit 1
+          fi
       - name: Build Android application
         working-directory: ./usr
         run: flutter build apk --release
