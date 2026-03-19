@@ -24,13 +24,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: const Color(0xFF4CAF50), // Pickleball Green
           scaffoldBackgroundColor: Colors.white,
-          fontFamily: 'SF Pro',
           appBarTheme: const AppBarTheme(
             backgroundColor: Colors.white,
             foregroundColor: Colors.black,
             elevation: 0,
             titleTextStyle: TextStyle(
-              fontFamily: 'SF Pro',
               fontSize: 20,
               fontWeight: FontWeight.w600,
               color: Colors.black,
@@ -41,11 +39,7 @@ class MyApp extends StatelessWidget {
             selectedItemColor: Color(0xFF4CAF50),
             unselectedItemColor: Colors.grey,
             selectedLabelStyle: TextStyle(
-              fontFamily: 'SF Pro',
               fontWeight: FontWeight.w500,
-            ),
-            unselectedLabelStyle: TextStyle(
-              fontFamily: 'SF Pro',
             ),
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
@@ -56,7 +50,6 @@ class MyApp extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               textStyle: const TextStyle(
-                fontFamily: 'SF Pro',
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -71,22 +64,18 @@ class MyApp extends StatelessWidget {
           ),
           textTheme: const TextTheme(
             headlineLarge: TextStyle(
-              fontFamily: 'SF Pro',
               fontWeight: FontWeight.w700,
               color: Colors.black,
             ),
             headlineMedium: TextStyle(
-              fontFamily: 'SF Pro',
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
             bodyLarge: TextStyle(
-              fontFamily: 'SF Pro',
               fontWeight: FontWeight.w500,
               color: Colors.black,
             ),
             bodyMedium: TextStyle(
-              fontFamily: 'SF Pro',
               color: Colors.black,
             ),
           ),
